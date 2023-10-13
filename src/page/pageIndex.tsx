@@ -1,5 +1,4 @@
 import Sidebar from "@/components/sidebar";
-import styled from "styled-components";
 import RouteList from "@/router";
 import {useRoutes} from "react-router-dom";
 import {useState} from "react";
@@ -9,28 +8,21 @@ const Page = () => {
     const [isReduce, setIsReduce] = useState(false)
     return (
         <>
-            <RootStyle>
-                <SidebarStyle>
-                    <Sidebar isReduce={isReduce} switchShow={()=>setIsReduce(!isReduce)}/>
-                </SidebarStyle>
-                <MainStyle>
+            <div className={'flex min-h-screen'}>
+                <div className={`${isReduce ? 'transition   duration-150  w-9/12':''}`}>
+                    <Sidebar/>
+                </div>
+                <div className={'min-h-screen '}>
+                    <div>
+                        <button className={'fixed top-0 '} onClick={() => setIsReduce(!isReduce)}>
+                            {isReduce ? '<' : '>'}
+                        </button>
+                    </div>
                     {RouteElement}
-                </MainStyle>
-            </RootStyle>
+                </div>
+            </div>
         </>
     )
 }
-
-const RootStyle = styled.div`
-  display: flex;
-`
-const SidebarStyle = styled.div`
-  width: 20%;
-  min-height: 100vh;
-`
-const MainStyle = styled.div`
-  width: 80%;
-  min-height: 100vh;
-`
 
 export default Page
