@@ -9,12 +9,12 @@ const Page = () => {
     return (
         <>
             <div className={'flex min-h-screen'}>
-                <div className={`${isReduce ? 'transition   duration-150  w-9/12':''}`}>
+                <div className={`${isReduce ? 'transition   duration-150  w-[200px]':'hidden'}`}>
                     <Sidebar/>
                 </div>
                 <div className={'min-h-screen '}>
                     <div>
-                        <button className={'fixed top-0 '} onClick={() => setIsReduce(!isReduce)}>
+                        <button className={'bg-sky-200 hover:bg-sky-300 animate-[propel-5s-infinite]'} onClick={() => setIsReduce(!isReduce)}>
                             {isReduce ? '<' : '>'}
                         </button>
                     </div>
