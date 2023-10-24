@@ -8,17 +8,24 @@ const Page = () => {
     const [isReduce, setIsReduce] = useState(false)
     return (
         <>
-            <div className={'flex min-h-screen'}>
-                <div className={`transition-[width] ease-in-out duration-300  ${isReduce?'w-[200px]':'w-0'}`}>
-                    <Sidebar/>
+            <div className={'flex min-h-screen w-screen'}>
+                <div
+                    className={`transition-[width] ease-in-out duration-75  ${isReduce ? 'w-[200px]' : 'w-0'}`}>
+                    <div className={isReduce ? '' : 'hidden'}>
+                        <Sidebar/>
+                    </div>
                 </div>
-                <div className={'min-h-screen w-full flex '}>
-                    <div>
-                        <button className={'bg-sky-200 hover:bg-sky-300 animate-[propel-5s-infinite]'} onClick={() => setIsReduce(!isReduce)}>
+                <div className={'min-h-screen w-full'}>
+                    <div className={'fixed ml-4 mt-4 opacity-40'}>
+                        <button
+                            className={'w-7 h-7 rounded-full bg-rose-100 hover:bg-rose-300'}
+                            onClick={() => setIsReduce(!isReduce)}>
                             {isReduce ? '<' : '>'}
                         </button>
                     </div>
-                    {RouteElement}
+                    <div className={'w-full h-full'}>
+                        {RouteElement}
+                    </div>
                 </div>
             </div>
         </>

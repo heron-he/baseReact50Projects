@@ -11,13 +11,13 @@ const sidebar = () => {
     )
     return (
         <div>
-            <div>
+            <span>
                 {navigateList.map((item, index) => (
                     <div key={index}>
                         {item}
                     </div>
                 ))}
-            </div>
+            </span>
         </div>
     )
 }
